@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "jspm install",
     "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
