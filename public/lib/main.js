@@ -42,9 +42,9 @@ function loadYear(year) {
     yScale.domain([ 0, d3.max(r, function(d) { return d.votes; }) ]);
     xScale.domain(_.map(r, 'name'));
 
-    xAxis.call(d3.axisBottom(xScale));
+    xAxis.transition().delay(500).call(d3.axisBottom(xScale));
 
-    yAxis.call(d3.axisLeft(yScale).ticks(10));
+    yAxis.transition().delay(500).call(d3.axisLeft(yScale).ticks(10));
 
     var sel = g.selectAll('.bar')
       .data(r, function(d) { return d.id; });
@@ -56,13 +56,13 @@ function loadYear(year) {
       .attr("y", height)
       .attr("width", xScale.bandwidth())
       .attr('height', 0)
-      .transition()
+      .transition().delay(500)
       .attr("x", function(d) { return xScale(d.name); })
       .attr("y", function(d) { return yScale(d.votes); })
       .attr("height", function(d) { return height - yScale(d.votes); });
 
     sel
-      .transition()
+      .transition().delay(500)
       .attr("x", function(d) { return xScale(d.name); })
       .attr("y", function(d) { return yScale(d.votes); })
       .attr("width", xScale.bandwidth())
@@ -71,6 +71,8 @@ function loadYear(year) {
     sel
       .exit()
       .transition()
+      .attr('y', height)
+      .attr('height', 0)
       .remove();
   });
 }

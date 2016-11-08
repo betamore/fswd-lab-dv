@@ -11,6 +11,7 @@ System.config({
     "d3": "npm:d3@4.3.0",
     "jquery": "npm:jquery@3.1.1",
     "lodash": "npm:lodash@4.16.6",
+    "nvd3": "npm:nvd3@1.7.1",
     "typescript": "npm:typescript@1.8.10",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
