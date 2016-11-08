@@ -1,6 +1,21 @@
 <!doctype html>
 <html>
 <head>
+<style>
+
+.bar {
+fill: steelblue;
+}
+
+.bar:hover {
+fill: brown;
+}
+
+.axis--x path {
+display: none;
+}
+
+</style>
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
@@ -12,7 +27,8 @@
     <li id="results-2008">2008</li>
     <li id="results-2012">2012</li>
   </ul>
-  <div id="data">
-  </div>
+  <!-- <div id="data" style="width: 100%; height: 250px">
+  </div> -->
+  <svg width="960" height="500"></svg>
 </body>
 </html>
