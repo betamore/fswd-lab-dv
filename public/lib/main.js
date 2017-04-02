@@ -2,6 +2,25 @@ import * as d3 from "d3";
 import _ from 'lodash';
 import $ from 'jquery';
 
+function classForBar(d) {
+  return ['bar', colorForParty(d) ].join(' ');
+}
+
+function colorForParty(d) {
+  console.log('colorForParty', d);
+  if (d.party === 'R') {
+    return 'rep';
+  } else if (d.party === 'D') {
+    return 'dem';
+  } else if (d.party === 'LBT') {
+    return 'lbt';
+  } else if (d.party === 'GRE') {
+    return 'green';
+  } else {
+    return 'other';
+  }
+}
+
 function textForResult(d) {
   return d["LAST NAME,  FIRST"] + ': ' + d["GENERAL RESULTS"];
 }
@@ -29,12 +48,14 @@ function loadYear(year) {
   d3.csv('data/' + year + 'pres-data.csv', function(r) {
     r = _(r)
       .reject(['FEC ID', 'n/a'])
-      .filter(['STATE', 'Texas'])
+      .filter(['STATE', 'Maryland'])
       .map(function(d) {
+        console.log(d);
         return {
           id: d['FEC ID'],
           name: d['LAST NAME,  FIRST'],
-          votes: parseInt(d['GENERAL RESULTS'].replace(/,/g, ''))
+          votes: parseInt(d['GENERAL RESULTS'].replace(/,/g, '')),
+          party: d['PARTY']
         };
       )
       .value();
@@ -51,7 +72,7 @@ function loadYear(year) {
     sel
       .enter()
       .append('rect')
-      .attr('class', 'bar')
+      .attr('class', classForBar)
       .attr("x", function(d) { return xScale(d.name); })
       .attr("y", height)
       .attr("width", xScale.bandwidth())
@@ -59,7 +80,7 @@ function loadYear(year) {
       .transition().delay(500)
       .attr("x", function(d) { return xScale(d.name); })
       .attr("y", function(d) { return yScale(d.votes); })
-      .attr("height", function(d) { return height - yScale(d.votes); });
+      .attr("height", function(d) { return height - yScale(d.votes); })
 
     sel
       .transition().delay(500)
