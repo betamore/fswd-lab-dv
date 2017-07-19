@@ -4,29 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "jspm install",
-    "dev": "lite-server",
+    "dev": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jspm": "^0.16.47"
-  },
-  "jspm": {
-    "directories": {
-      "baseURL": "public"
-    },
-    "dependencies": {
-      "d3": "npm:d3@^4.3.0",
-      "lodash": "npm:lodash@^4.16.6"
-    },
-    "devDependencies": {
-      "typescript": "npm:typescript@^2.0.7"
-    }
+    "css-loader": "^0.28.4",
+    "d3": "^4.10.0",
+    "lodash": "^4.17.4",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.3.0"
   },
   "devDependencies": {
-    "lite-server": "^2.2.2"
+    "html-webpack-plugin": "^2.29.0",
+    "webpack-dev-server": "^2.5.1"
   }
 }
