@@ -38,3 +38,7 @@
     .axis--x path {
     display: none;
     }
+
+    #map {
+      height: 100%;
+    }

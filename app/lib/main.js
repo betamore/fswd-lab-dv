@@ -6,44 +6,44 @@ var $ = require('jquery');
 
 window.d3 = d3;
 
-function classForBar(d) {
-  return ['bar', colorForParty(d) ].join(' ');
-}
-
-function colorForParty(d) {
-  console.log('colorForParty', d);
-  if (d.party === 'R') {
-    return 'rep';
-  } else if (d.party === 'D') {
-    return 'dem';
-  } else if (d.party === 'LBT') {
-    return 'lbt';
-  } else if (d.party === 'GRE') {
-    return 'green';
-  } else {
-    return 'other';
-  }
-}
-
-function textForResult(d) {
-  return d["LAST NAME,  FIRST"] + ': ' + d["GENERAL RESULTS"];
-}
-var svg = d3.select("svg"),
-    margin = {top: 20, right: 20, bottom: 70, left: 60},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom;
-
-var g = svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var xScale = d3.scaleBand().rangeRound([0, width]).padding(0.1);
-var yScale = d3.scalePow().rangeRound([ height, 0]).exponent(0.25);
-
-var xAxis = g.append("g")
-  .attr("class", "axis axis--x")
-  .attr("transform", "translate(0," + height + ")");
-var yAxis = g.append("g")
-    .attr("class", "axis axis--y");
+// function classForBar(d) {
+//   return ['bar', colorForParty(d) ].join(' ');
+// }
+//
+// function colorForParty(d) {
+//   console.log('colorForParty', d);
+//   if (d.party === 'R') {
+//     return 'rep';
+//   } else if (d.party === 'D') {
+//     return 'dem';
+//   } else if (d.party === 'LBT') {
+//     return 'lbt';
+//   } else if (d.party === 'GRE') {
+//     return 'green';
+//   } else {
+//     return 'other';
+//   }
+// }
+//
+// function textForResult(d) {
+//   return d["LAST NAME,  FIRST"] + ': ' + d["GENERAL RESULTS"];
+// }
+// var svg = d3.select("svg"),
+//     margin = {top: 20, right: 20, bottom: 70, left: 60},
+//     width = +svg.attr("width") - margin.left - margin.right,
+//     height = +svg.attr("height") - margin.top - margin.bottom;
+//
+// var g = svg.append("g")
+//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+//
+// var xScale = d3.scaleBand().rangeRound([0, width]).padding(0.1);
+// var yScale = d3.scalePow().rangeRound([ height, 0]).exponent(0.25);
+//
+// var xAxis = g.append("g")
+//   .attr("class", "axis axis--x")
+//   .attr("transform", "translate(0," + height + ")");
+// var yAxis = g.append("g")
+//     .attr("class", "axis axis--y");
 
 // $(function() {
 //     $('#results-2008').click(function() { loadYear(2008); });
