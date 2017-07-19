@@ -34,7 +34,7 @@ module.exports = {
   },
 
   plugins: [
-      new HtmlWebpackPlugin({ title: 'D3 Playground' })
+      new HtmlWebpackPlugin({ title: 'D3 Playground', template: 'app/index.ejs' })
   ],
 
   devtool: 'inline-source-map',

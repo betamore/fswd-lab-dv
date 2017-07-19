@@ -15,3 +15,26 @@
       font: 10px sans-serif;
       text-anchor: end;
     }
+    .bar {
+    }
+    .other {
+      fill: steelblue;
+    }
+    .dem {
+      fill: blue;
+    }
+    .rep {
+      fill: red;
+    }
+    .green {
+      fill: lightgreen;
+    }
+    .lbt {
+      fill: yellow;
+    }
+    .bar:hover {
+    fill: brown;
+    }
+    .axis--x path {
+    display: none;
+    }
