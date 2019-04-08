@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "^2.29.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack-dev-server": "^3.3.0"
   }
 }
